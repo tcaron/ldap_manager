@@ -1,0 +1,62 @@
+ldap_homepage:
+    path:     /
+    defaults: { _controller: LdapBundle:Default:index }
+
+ldap_login:
+    path: /login
+    defaults :  { _controller: LdapBundle:Default:auth }
+
+ldap_deleteall:
+    path: /deleteall
+    defaults :  { _controller: LdapBundle:Default:deleteAll }
+
+ldap_extract:
+    path: /extract
+    defaults :  { _controller: LdapBundle:Default:jsonExtract }
+
+ldap_import:
+    path: /import
+    defaults :  { _controller: LdapBundle:Default:jsonImport }
+
+ldap_login_submit_ajax:
+    path: /login-ajax
+    defaults :  { _controller: LdapBundle:Default:loginAjax }
+
+ldap_ajout:
+    path:     /ajout
+    defaults: { _controller: LdapBundle:Default:ajout }
+
+ldap_logout:
+    path: /logout
+    defaults: { _controller: LdapBundle:Default:logout }
+
+ldap_delete:
+    path: /delete
+    defaults: { _controller: LdapBundle:Default:delete }
+
+ldap_modif:
+    path: /modif
+    defaults: { _controller: LdapBundle:Default:modify}
+
+ldap_group_add:
+    path: /group/add
+    defaults: { _controller: LdapBundle:Default:addGroup }
+
+ldap_group:
+    path: /group
+    defaults: { _controller: LdapBundle:Default:indexGroup }
+
+ldap_group_add_members:
+    path: /group/add/{cn}
+    defaults: { _controller: LdapBundle:Default:addMembers }
+
+
+ldap_group_delete:
+    path: /group/delete
+    defaults: { _controller:LdapBundle:Default:deleteGroup }
+
+ldap_group_modify:
+    path: /group/modify
+    defaults: { _controller:LdapBundle:Default:modifyGroup }
+
+

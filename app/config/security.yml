@@ -1,0 +1,22 @@
+# To get started with security, check out the documentation:
+# https://symfony.com/doc/current/security.html
+security:
+    providers:
+        in_memory:
+            memory:
+                users:
+                    admin:
+                         password: bla
+                         roles: 'ROLE_ADMIN'
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: ~
+            #form_login:
+
+
+

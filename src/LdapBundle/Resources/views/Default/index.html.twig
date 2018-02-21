@@ -1,0 +1,34 @@
+<a href="{{path('ldap_ajout')}}">Ajouter un nouvel utilisateur</a><br>
+<a href="{{path('ldap_modif')}}">Modifier un utilisateur</a><br>
+<a href="{{path('ldap_group')}}">Gestion des groupes</a><br>
+<br>
+<a href="{{path('ldap_logout')}}">Me déconnecter</a>
+<br>
+<a href="{{path('ldap_deleteall')}}">Supprimer tous les users</a>
+<br>
+<a href="{{path('ldap_extract')}}">Extraire en json</a>
+
+<a href="{{path('ldap_import')}}">Import json</a>
+{% if entries is defined %}
+<table> 
+<tr>
+<th>sn</th>
+<th>cn</th>
+<th>description</th>
+<th>givenName</th>
+<th>Supprimer</th>
+</tr>
+{% for entry in entries %}
+<tr>
+{% if entry.attributes["sn"] is defined %}
+<td>  {{ entry.attributes["sn"][0] }}</td>
+<td>{{ entry.attributes["cn"][0] }}</td>
+{% if entry.attributes["description"] is defined %}{% for description in entry.attributes["description"] %}<td>{{ description }}</td>{% endfor %}{% else %}<td></td>{% endif %}
+<td>{{ entry.attributes["givenName"][0]}}</td>
+<td><form action="{{path('ldap_delete')}}"><input type="hidden" name="hidden-val" value="{{entry.attributes["uid"][0]}}"><input type="submit" value="Supprimer"></form></td>
+{% endif %}
+</tr>
+{% endfor %}
+</table>
+{% endif %}
+

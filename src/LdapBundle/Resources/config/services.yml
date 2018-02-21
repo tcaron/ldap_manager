@@ -1,0 +1,4 @@
+services:
+#    ldap.example:
+#        class: LdapBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

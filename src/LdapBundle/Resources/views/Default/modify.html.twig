@@ -1,0 +1,20 @@
+<form>
+Utilisateur à modifier
+<select name="uid">
+{% for user in users%}{% if user.getAttribute('uid')[0] is defined %}
+<option value="{{ user.getAttribute('uid')[0] }}">{{ user.getAttribute('uid')[0] }}</option>
+{% endif %}{% endfor %}
+</select><br>
+cn
+<input type="text" name="cn"> <br>
+sn
+<input type="text" name="sn"> <br>
+GivenName
+<input type="text" name="givenName"> <br>
+description
+<input type="text" name="description"> <br>
+password
+<input type="password" name="password"> <br>
+<input type="submit" name="submit-form">
+</form>
+

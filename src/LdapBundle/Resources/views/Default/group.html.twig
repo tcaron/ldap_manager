@@ -1,0 +1,25 @@
+<a href="{{path('ldap_homepage')}}">Retour</a> <br>
+<br>
+<a href="{{path('ldap_group_add')}}">Ajouter un nouveau group</a><br><br>
+
+<h1>Gestion des groupes </h1>
+<table>
+<tr>
+	<th>CN</th>
+	<th>Description</th>
+	<th>gidNumber</th>
+	<th>Supprimer</th>
+	<th>Action</th>
+</tr>
+{% if entries is defined %}
+	{% for entry in entries %}
+	<tr>
+		<td>{{ entry.attributes["cn"][0] }}</td>
+		<td>{{ entry.attributes["description"][0] }}</td>
+		<td>{{ entry.attributes["gidNumber"][0] }}</td>
+		<td><form action="{{path('ldap_group_delete')}}"><input type="hidden" name="hidden-val" value="{{entry.attributes["cn"][0]}}"><input type="submit" value="Supprimer"></form></td>
+		<td><form action="{{path('ldap_group_add_members',{'cn':entry.attributes["cn"][0] })}}"><input type="hidden" name="hidden-val" value="{{entry.attributes["cn"][0]}}"><input type="submit" value="Ajouter des membres"></form></td>
+	</tr>
+	{% endfor %}
+{% endif %}
+</table>

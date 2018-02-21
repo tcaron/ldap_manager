@@ -1,0 +1,11 @@
+{% if app.session.username is admin %}
+<form>
+Nom du groupe : 
+<input type="text" name="group-name"> <br>
+Description:
+<input type="text"name="description"><br>
+<input type="submit" name="submit-group">
+</form>
+{% else %}
+pas le droit
+{% endif %}

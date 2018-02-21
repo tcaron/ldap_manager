@@ -1,0 +1,10 @@
+<h1>Ajouter un membres au groupe {{cn}} </h1>
+
+<form> 
+<select name="uid">
+{% for user in users%}{% if user.getAttribute('uid')[0] is defined %}
+<option value="{{ user.getAttribute('uid')[0] }}">{{ user.getAttribute('uid')[0] }}</option>
+{% endif %}{% endfor %}
+</select><br>
+<input type="submit" name="add-submit">
+</form>
